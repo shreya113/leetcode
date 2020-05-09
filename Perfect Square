@@ -1,0 +1,14 @@
+bool isPerfectSquare(int num){
+    int m;
+    float p;
+    p = sqrt(num);
+    m=p;
+    if(p==m)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
