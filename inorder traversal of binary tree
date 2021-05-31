@@ -1,0 +1,26 @@
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+
+    List<Integer> list = new ArrayList<>();
+    if (root == null) {
+      return list;
+    }
+    Stack<TreeNode> stk = new Stack<>();
+    stk.push(root);
+    root = root.left;
+    while (root != null) {
+      stk.push(root);
+      root = root.left;
+    }
+    while (!stk.isEmpty()) {
+      TreeNode removed = stk.pop();
+      list.add(removed.val);
+      removed = removed.right;
+      while (removed != null) {
+        stk.push(removed);
+        removed = removed.left;
+      }
+    }
+    return list;
+    }
+}
