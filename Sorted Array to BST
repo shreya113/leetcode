@@ -1,0 +1,18 @@
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return sortedArrayToBST2(nums,0,nums.length-1); 
+    }
+   static TreeNode sortedArrayToBST2(int arr[], int start, int end)
+   {
+  
+        if (start > end) {
+            return null;
+        }
+        int mid = (start + end) / 2;
+        TreeNode node = new TreeNode(arr[mid]);
+        node.left = sortedArrayToBST2(arr, start, mid - 1);
+        node.right = sortedArrayToBST2(arr, mid + 1, end);
+          
+        return node;
+    }
+}
