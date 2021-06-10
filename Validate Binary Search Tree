@@ -1,0 +1,21 @@
+class Solution {
+    static TreeNode prev;
+    public boolean isValidBST(TreeNode root) {
+        prev = null;
+        return method2(root);
+    }
+    
+    public static boolean method2(TreeNode root)
+    {
+        if(root != null)
+        {
+            if(!method2(root.left))
+                return false;
+            if(prev!=null && root.val<=prev.val)
+                return false;
+            prev = root;
+            return method2(root.right);
+        }
+        return true;
+    }
+}
