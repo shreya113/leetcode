@@ -1,0 +1,27 @@
+
+class Solution
+{
+    public static Node reverse(Node node, int k)
+    {
+       if(node == null)
+          return null;
+        Node current = node;
+        Node next = null;
+        Node prev = null;
+ 
+        int count = 0;
+ 
+        while (count < k && current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+        if (next != null)
+            node.next = reverse(next, k);
+ 
+        return prev;
+    }
+}
+
